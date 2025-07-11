@@ -1,5 +1,19 @@
 function wordsTracker(arr) {
- 
+    let wordsObj = {}
+    arr.shift().split(" ").forEach(word => {
+        wordsObj[word] = 0
+    });
+    for (const word of arr) {
+        if (wordsObj.hasOwnProperty(word)) {
+            wordsObj[word] += 1
+        }
+    }
+   let sortedArr = Object.entries(wordsObj).sort((a,b) => b[1] - a[1])
+    for (const words of sortedArr) {
+       
+       console.log(`${words[0]} - ${words[1]}`);
+        
+    }
 }
 
 
